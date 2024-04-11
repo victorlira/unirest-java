@@ -110,9 +110,9 @@ class AsGenericTypeTest extends BddTest {
 
     private void assertTheFoos(List<Foo> someTees) {
         assertEquals(3, someTees.size());
-        assertEquals("foo", someTees.get(0).bar);
-        assertEquals("bar", someTees.get(1).bar);
-        assertEquals("baz", someTees.get(2).bar);
+        assertEquals("foo", someTees.get(0).getBar());
+        assertEquals("bar", someTees.get(1).getBar());
+        assertEquals("baz", someTees.get(2).getBar());
     }
 
     public static class WeirdType<T> {

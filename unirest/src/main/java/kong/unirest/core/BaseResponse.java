@@ -178,5 +178,6 @@ abstract class BaseResponse<T> implements HttpResponse<T> {
         return reqSummary;
     }
 
+    @Deprecated
     protected abstract String getRawBody();
 }

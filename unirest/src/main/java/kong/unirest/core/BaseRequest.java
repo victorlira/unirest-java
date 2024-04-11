@@ -262,6 +262,11 @@ abstract class BaseRequest<R extends HttpRequest> implements HttpRequest<R> {
     }
 
     @Override
+    public <S, F> HttpResponse<Either<S, F>> asEither(Class<S> successClass, Class<F> failureClass) {
+        return request(r -> new EitherResponse<>(getObjectMapper(), r, successClass, failureClass), Either.class);
+    }
+
+    @Override
     public <T> CompletableFuture<HttpResponse<T>> asObjectAsync(Function<RawResponse, T> function) {
         return requestAsync(this, funcResponse(function), new CompletableFuture<>(), JsonNode.class);
     }

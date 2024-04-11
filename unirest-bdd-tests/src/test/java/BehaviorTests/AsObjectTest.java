@@ -55,7 +55,7 @@ class AsObjectTest extends BddTest {
                 .asObject(Foo.class)
                 .getBody();
 
-        assertEquals("bar", f.bar);
+        assertEquals("bar", f.getBar());
     }
 
     @Test

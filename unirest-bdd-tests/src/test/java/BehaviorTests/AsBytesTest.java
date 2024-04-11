@@ -97,6 +97,6 @@ class AsBytesTest extends BddTest {
                 .asBytes()
                 .mapError(Foo.class);
 
-        assertEquals("howdy", r.bar);
+        assertEquals("howdy", r.getBar());
     }
 }

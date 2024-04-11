@@ -334,6 +334,20 @@ public interface HttpRequest<R extends HttpRequest>  {
      */
     <T> CompletableFuture<HttpResponse<T>> asObjectAsync(Function<RawResponse, T> function);
 
+
+    /**
+     * Some APIs will return one schema for a successful message and another for a Error. This method attempts to support that
+     *
+     * maps the response into a Either. If successful the response will attempt to be mapped into the success class.
+     * If the response failed the body will be mapped into the failure class.
+     * @param successClass the successful class
+     * @param failureClass the failure class
+     * @return a Either of success and failure
+     * @param <T> successful type
+     * @param <F> failure type
+     */
+    <S, F> HttpResponse<Either<S, F>> asEither(Class<S> successClass, Class<F> failureClass);
+
     /**
      * Executes the request and writes the contents into a file
      * @param path The path to the file.

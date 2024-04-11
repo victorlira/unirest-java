@@ -30,7 +30,7 @@ import com.google.common.base.MoreObjects;
 import java.util.Objects;
 
 public class Foo {
-    public String bar;
+    private String bar;
 
     public Foo(){ }
 
@@ -54,5 +54,9 @@ public class Foo {
     @Override
     public int hashCode() {
         return Objects.hash(bar);
+    }
+
+    public String getBar() {
+        return bar;
     }
 }

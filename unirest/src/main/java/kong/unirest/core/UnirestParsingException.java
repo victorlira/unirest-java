@@ -25,6 +25,7 @@
 
 package kong.unirest.core;
 
+@Deprecated
 public class UnirestParsingException extends UnirestException {
     private final String originalBody;
 
